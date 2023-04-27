@@ -18,7 +18,7 @@ info_pro,quantity_like,price,class_name,rating,product_reviews,shop_info = [],[]
 n = 9
 def openMultiBrowsers1(n):
     drivers = []
-    for i in range(7,n):
+    for i in range(0,n):
         driver = webdriver.Chrome('chromedriver.exe')
         driver.get('https://shopee.vn/Th%E1%BB%9Di-Trang-Tr%E1%BA%BB-Em-cat.11036382?page={}&sortBy=sales'.format(i))
         driver.maximize_window()
