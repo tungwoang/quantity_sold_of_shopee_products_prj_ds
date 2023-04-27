@@ -26,8 +26,8 @@ def openMultiBrowsers1(n):
         login = driver.find_element(By.XPATH, '//a[text()="Đăng Nhập"]')
         login.click()
         sleep(10)
-        a.send_keys('tungquang2472').send_keys(Keys.TAB).perform()
-        a.send_keys('0912957815Qt@').send_keys(Keys.ENTER).perform()
+        a.send_keys('user_name').send_keys(Keys.TAB).perform()
+        a.send_keys('pass_word').send_keys(Keys.ENTER).perform()
         height = driver.execute_script("return document.body.scrollHeight")
         for i in range(height):
             driver.execute_script('window.scrollBy(0,15)') 
@@ -69,16 +69,15 @@ def openMultiBrowsers1(n):
         drivers.append(driver)
     return drivers
     
-còn page 7,8
           
     #drivers.append(driver) 
     return info_pro,quantity_like,price,class_name,rating,product_reviews,shop_info
 openMultiBrowsers1(9)
 
-df_3= pd.DataFrame({'info':info_pro,'price':price,'quantity_like':quantity_like,'rating':rating,'product_reviews':product_reviews,'shop_info':shop_info,'class_name':class_name})
-df_3.to_csv('craw_shopee4.csv')
+df= pd.DataFrame({'info':info_pro,'price':price,'quantity_like':quantity_like,'rating':rating,'product_reviews':product_reviews,'shop_info':shop_info,'class_name':class_name})
+df.to_csv('craw_shopee4.csv')
 
-df1 = pd.read_csv('craw_shopee.csv')
+df = pd.read_csv('craw_shopee.csv')
 
 ----------------CHẠY ĐA LUỒNG ------ LẤY CÁC THÔNG TIN BỀ MẶT CỦA SẢN PHẨM ------------------
 
@@ -160,7 +159,7 @@ city = link[4]
 df = pd.DataFrame({'title':title,'price':price,'quantity_sell_permonth':qa_permonth,'city_of_sell':city})
 
 
-    
+    -----------------------Check -----------------------
     
 driver = webdriver.Chrome('chromedriver.exe')
 driver.get('https://shopee.vn/-M%C3%A3-FATRENDW3-gi%E1%BA%A3m-%C4%91%E1%BA%BFn-30K-%C4%91%C6%A1n-99K-T%E1%BA%A5t-tr%C6%A1n-cao-c%E1%BA%A5p-th%E1%BA%A5p-c%E1%BB%95-ulzzang-i.39923306.3553455649?sp_atk=a8beb17c-283c-44e2-8bb4-dbd86da230f6&xptdk=a8beb17c-283c-44e2-8bb4-dbd86da230f6')
@@ -168,10 +167,6 @@ sleep(random.randint(5, 10))
 driver.maximize_window()
 elems_name = driver.find_elements(By.CLASS_NAME,"product-detail.page-product__detail")
 name_pro= [elem.text for elem in elems_name]  
-
-
-
-
 
 driver = webdriver.Chrome('chromedriver.exe')
 driver.get('https://shopee.vn/Th%E1%BB%9Di-Trang-N%E1%BB%AF-cat.11035639?page={}&sortBy=sales')
